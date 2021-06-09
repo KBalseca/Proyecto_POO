@@ -27,4 +27,30 @@ public class VideoPlus {
         
         //reproduzca las peliculas*/
     }
+    
+public class Video {
+    private String nombre;
+    private  int numeroReproducciones;
+    
+    public Video(String nombre, int numeroReproducciones) {
+        this.nombre = nombre;
+        this.numeroReproducciones = numeroReproducciones;
+        
+    }
+    public Video(String nombre) {
+        this (nombre,0);
+    }
+    public void mostrarInfomacion() {
+        System.out.println("nombres="+nombre+", "
+                +"numeroReproducciones="+numeroReproducciones+"}");
+    }
+    public boolean equals(Object obj) {
+        Video other = (Video) obj;
+        if (this.nombre.equals(other.nombre) &&
+                this.numeroReproducciones == other.numeroReproducciones) {
+            return true;
+        }
+        return false;
+    }
+}
 }
