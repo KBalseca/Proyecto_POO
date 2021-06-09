@@ -6,6 +6,7 @@
 package videoplus;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -37,6 +38,23 @@ public class Video {
         this.numeroReproducciones = numeroReproducciones;
         
     }
+
+        public String getNombre() {
+            return nombre;
+        }
+
+        public void setNombre(String nombre) {
+            this.nombre = nombre;
+        }
+
+        public int getNumeroReproducciones() {
+            return numeroReproducciones;
+        }
+
+        public void setNumeroReproducciones(int numeroReproducciones) {
+            this.numeroReproducciones = numeroReproducciones;
+        }
+    
     public Video(String nombre) {
         this (nombre,0);
     }
@@ -52,7 +70,7 @@ public class Video {
         }
         return false;
     }
-}
+    }
     public class Cliente {
         private ArrayList<Video> ListaReproduccion;
         private String nombre;
@@ -65,6 +83,22 @@ public class Video {
             this.nombre= nombre;
             //inicializamos el objeto lista
             ListaReproduccion = new ArrayList<>();
+        }
+
+        public ArrayList<Video> getListaReproduccion() {
+            return ListaReproduccion;
+        }
+
+        public void setListaReproduccion(ArrayList<Video> ListaReproduccion) {
+            this.ListaReproduccion = ListaReproduccion;
+        }
+
+        public String getNombre() {
+            return nombre;
+        }
+
+        public void setNombre(String nombre) {
+            this.nombre = nombre;
         }
         
         /**
@@ -81,5 +115,21 @@ public class Video {
                  }
              return false;
          }
+    }
+    
+    public void reproducirVideo(Cliente c1) {
+        String continuar = "no";
+        Scanner sc = new Scanner(System.in);
+        do{
+           for (Video element:c1.ListaReproduccion) {
+               System.out.println(element.getNombre());
+               System.out.println("¿Desea continuar?: ");
+               continuar = sc.nextLine();
+               if (continuar=="si") {
+                   element.numeroReproducciones+=1;
+                   
+               }
+           }
+        }while(continuar.equalsIgnoreCase("si"));
     }
 }
