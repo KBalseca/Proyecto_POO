@@ -53,4 +53,33 @@ public class Video {
         return false;
     }
 }
+    public class Cliente {
+        private ArrayList<Video> ListaReproduccion;
+        private String nombre;
+        
+        /**
+         * Constructor que fija el nombre del cliente e inicializa ListaReproduccion
+         *  @param nombre
+         */      
+        public Cliente(String nombre){
+            this.nombre= nombre;
+            //inicializamos el objeto lista
+            ListaReproduccion = new ArrayList<>();
+        }
+        
+        /**
+         * Agrega un video al final de la lista de reproduccion. El cliente no puede tener
+         * más de 5 videos en la lista. Retorna verdadero sis e pudo agregar el video
+         * @param p
+         */
+         public boolean agregarLista(Video v){
+             //metodo size retorn el numero de elementos en el arreglo
+             if (ListaReproduccion.size()<5){
+                 //el metodo add agrega un objeto al final de la salida
+                 ListaReproduccion.add(v);
+                 return true;
+                 }
+             return false;
+         }
+    }
 }
