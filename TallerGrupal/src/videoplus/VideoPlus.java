@@ -31,7 +31,6 @@ public class VideoPlus {
 public class Video {
     private String nombre;
     private  int numeroReproducciones;
-    private int pruebas;
     
     public Video(String nombre, int numeroReproducciones) {
         this.nombre = nombre;
