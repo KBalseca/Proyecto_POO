@@ -122,16 +122,29 @@ public static class Video {
     public static void reproducirVideo(Cliente c) {
         String continuar = "no";
         Scanner sc = new Scanner(System.in);
+        Cliente c1 = c;
+        int indices = c1.ListaReproduccion.size();
         do{
-           for (Video element:c.ListaReproduccion) {
-               System.out.println(element.getNombre());
+            for (int i = 0; i < c1.ListaReproduccion.size(); i++) {
+               System.out.println(c1.ListaReproduccion.get(i).getNombre());
+               int contador = c1.ListaReproduccion.get(i).numeroReproducciones;
+               contador+=1;
+               c1.ListaReproduccion.get(i).setNumeroReproducciones(contador);
+               System.out.println(c1.ListaReproduccion.get(i).numeroReproducciones);
+               c1.ListaReproduccion.remove(c1.ListaReproduccion.get(i));
+               indices = c1.ListaReproduccion.size();
+               if (indices==0) {
+                       break;
+                   }
                System.out.println("¿Desea continuar?: ");
                continuar = sc.nextLine();
-               if (continuar.equals("si")) {
-                   c.ListaReproduccion.remove(element);
-                   element.numeroReproducciones+=1;
+               if (continuar.equals("no")) {
+                   break;
                }
-           }
+            }
+           if (indices==0) {
+                       break;
+                   }
         }while(continuar.equals("si"));
     }
 }
