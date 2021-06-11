@@ -6,6 +6,7 @@
 package videoplus;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 public class VideoPlus {
     
     public static void main(String[] args){
-        /*ArrayList<Video> videos = new ArrayList<Video>();
+        ArrayList<Video> videos = new ArrayList<>();
         videos.add(new Video("Cruela"));
         videos.add(new Video("Lazo While"));
         videos.add(new Video("El rey Leon"));
@@ -23,12 +24,14 @@ public class VideoPlus {
         videos.add(new Video("Buscando a neno"));
         
         Cliente c = new Cliente("jose");
+        c.ListaReproduccion=videos;
+        System.out.println(c.ListaReproduccion);
+        reproducirVideo(c);
         //agregue cinco peluclas a la lista de reproduccion
-        
         //reproduzca las peliculas*/
     }
     
-public class Video {
+public static class Video {
     private String nombre;
     private  int numeroReproducciones;
     
@@ -37,6 +40,23 @@ public class Video {
         this.numeroReproducciones = numeroReproducciones;
         
     }
+
+        public String getNombre() {
+            return nombre;
+        }
+
+        public void setNombre(String nombre) {
+            this.nombre = nombre;
+        }
+
+        public int getNumeroReproducciones() {
+            return numeroReproducciones;
+        }
+
+        public void setNumeroReproducciones(int numeroReproducciones) {
+            this.numeroReproducciones = numeroReproducciones;
+        }
+    
     public Video(String nombre) {
         this (nombre,0);
     }
@@ -52,8 +72,8 @@ public class Video {
         }
         return false;
     }
-}
-    public class Cliente {
+    }
+    public static class Cliente {
         private ArrayList<Video> ListaReproduccion;
         private String nombre;
         
@@ -65,6 +85,22 @@ public class Video {
             this.nombre= nombre;
             //inicializamos el objeto lista
             ListaReproduccion = new ArrayList<>();
+        }
+
+        public ArrayList<Video> getListaReproduccion() {
+            return ListaReproduccion;
+        }
+
+        public void setListaReproduccion(ArrayList<Video> ListaReproduccion) {
+            this.ListaReproduccion = ListaReproduccion;
+        }
+
+        public String getNombre() {
+            return nombre;
+        }
+
+        public void setNombre(String nombre) {
+            this.nombre = nombre;
         }
         
         /**
@@ -81,5 +117,21 @@ public class Video {
                  }
              return false;
          }
+    }
+    
+    public static void reproducirVideo(Cliente c) {
+        String continuar = "no";
+        Scanner sc = new Scanner(System.in);
+        do{
+           for (Video element:c.ListaReproduccion) {
+               System.out.println(element.getNombre());
+               System.out.println("¿Desea continuar?: ");
+               continuar = sc.nextLine();
+               if (continuar.equals("si")) {
+                   c.ListaReproduccion.remove(element);
+                   element.numeroReproducciones+=1;
+               }
+           }
+        }while(continuar.equals("si"));
     }
 }
