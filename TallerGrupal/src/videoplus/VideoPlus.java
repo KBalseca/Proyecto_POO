@@ -15,7 +15,7 @@ import java.util.Scanner;
 public class VideoPlus {
     
     public static void main(String[] args){
-        /*ArrayList<Video> videos = new ArrayList<Video>();
+        ArrayList<Video> videos = new ArrayList<>();
         videos.add(new Video("Cruela"));
         videos.add(new Video("Lazo While"));
         videos.add(new Video("El rey Leon"));
@@ -24,12 +24,14 @@ public class VideoPlus {
         videos.add(new Video("Buscando a neno"));
         
         Cliente c = new Cliente("jose");
+        c.ListaReproduccion=videos;
+        System.out.println(c.ListaReproduccion);
+        reproducirVideo(c);
         //agregue cinco peluclas a la lista de reproduccion
-        
         //reproduzca las peliculas*/
     }
     
-public class Video {
+public static class Video {
     private String nombre;
     private  int numeroReproducciones;
     
@@ -71,7 +73,7 @@ public class Video {
         return false;
     }
     }
-    public class Cliente {
+    public static class Cliente {
         private ArrayList<Video> ListaReproduccion;
         private String nombre;
         
@@ -117,19 +119,32 @@ public class Video {
          }
     }
     
-    public void reproducirVideo(Cliente c1) {
+    public static void reproducirVideo(Cliente c) {
         String continuar = "no";
         Scanner sc = new Scanner(System.in);
+        Cliente c1 = c;
+        int indices = c1.ListaReproduccion.size();
         do{
-           for (Video element:c1.ListaReproduccion) {
-               System.out.println(element.getNombre());
+            for (int i = 0; i < c1.ListaReproduccion.size(); i++) {
+               System.out.println(c1.ListaReproduccion.get(i).getNombre());
+               int contador = c1.ListaReproduccion.get(i).numeroReproducciones;
+               contador+=1;
+               c1.ListaReproduccion.get(i).setNumeroReproducciones(contador);
+               System.out.println(c1.ListaReproduccion.get(i).numeroReproducciones);
+               c1.ListaReproduccion.remove(c1.ListaReproduccion.get(i));
+               indices = c1.ListaReproduccion.size();
+               if (indices==0) {
+                       break;
+                   }
                System.out.println("¿Desea continuar?: ");
                continuar = sc.nextLine();
-               if (continuar=="si") {
-                   element.numeroReproducciones+=1;
-                   
+               if (continuar.equals("no")) {
+                   break;
                }
-           }
-        }while(continuar.equalsIgnoreCase("si"));
+            }
+           if (indices==0) {
+                       break;
+                   }
+        }while(continuar.equals("si"));
     }
 }
