@@ -56,7 +56,7 @@ public class Video {
         }
     
     public Video(String nombre) {
-        this (nombre,0);
+        this (nombre,0 );
     }
     public void mostrarInfomacion() {
         System.out.println("nombres="+nombre+", "
