@@ -14,8 +14,10 @@ import java.util.Scanner;
  */
 public class VideoPlus {
     
+    
+    
     public static void main(String[] args){
-        /*ArrayList<Video> videos = new ArrayList<Video>();
+        /*ArrayList<Video> videos = new ArrayList<>();
         videos.add(new Video("Cruela"));
         videos.add(new Video("Lazo While"));
         videos.add(new Video("El rey Leon"));
@@ -23,9 +25,8 @@ public class VideoPlus {
         videos.add(new Video("Blanca Nieves"));
         videos.add(new Video("Buscando a neno"));
         
-        Cliente c = new Cliente("jose");
+        Cliente c = new Cliente("jose");*/
         //agregue cinco peluclas a la lista de reproduccion
-        
         //reproduzca las peliculas*/
     }
     
@@ -117,17 +118,17 @@ public class Video {
          }
     }
     
-    public void reproducirVideo(Cliente c1) {
+    public void reproducirVideo(Cliente c) {
         String continuar = "no";
         Scanner sc = new Scanner(System.in);
         do{
-           for (Video element:c1.ListaReproduccion) {
+           for (Video element:c.ListaReproduccion) {
                System.out.println(element.getNombre());
                System.out.println("¿Desea continuar?: ");
                continuar = sc.nextLine();
-               if (continuar=="si") {
+               if (continuar.equalsIgnoreCase("si")) {
+                   c.ListaReproduccion.remove(element);
                    element.numeroReproducciones+=1;
-                   
                }
            }
         }while(continuar.equalsIgnoreCase("si"));
