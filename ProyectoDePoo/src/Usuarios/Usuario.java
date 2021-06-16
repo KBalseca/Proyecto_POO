@@ -12,13 +12,16 @@ package Usuarios;
 public class Usuario {
     private String nombre;
     private String contraseña;
+    private String cedula;
+    private String correo;
 
-    public Usuario(String nombre, String contraseña) {
+    public Usuario(String nombre, String contraseña, String cedula, String correo) {
         this.nombre = nombre;
         this.contraseña = contraseña;
+        this.cedula = cedula;
+        this.correo = correo;
     }
-    public Usuario(){
-    this.nombre=null;
-    this.contraseña=null;
-    }
+
+    
 }
+
