@@ -14,14 +14,46 @@ public class Usuario {
     private String contraseña;
     private String cedula;
     private String correo;
+    
+ 
 
-    public Usuario(String nombre, String contraseña, String cedula, String correo) {
+    public Usuario(String nombre, String contraseña) {
         this.nombre = nombre;
         this.contraseña = contraseña;
-        this.cedula = cedula;
-        this.correo = correo;
+    }
+    
+    public String getNombre() {
+        return nombre;
     }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+    
     
 }
 
