@@ -5,11 +5,12 @@
  */
 package Agencia;
 import java.util.Scanner;
-import Usuarios.Usuario;
+import Clases.Usuario;
 import java.util.ArrayList;
-import Usuarios.Chat;
-import Usuarios.Mensaje;
+import Clases.Chat;
+import Clases.Mensaje;
 import java.time.LocalDate;
+import Clases.BienRaiz;
 /**
  *
  * @author ricky

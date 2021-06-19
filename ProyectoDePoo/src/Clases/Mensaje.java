@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Usuarios;
+package Clases;
 import java.time.LocalDate;
 import java.util.Locale;
 import java.util.Scanner;
