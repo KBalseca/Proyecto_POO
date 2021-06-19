@@ -11,7 +11,7 @@ package Usuarios;
  */
 public class Usuario {
     private String nombre;
-    private String contraseña;
+    private String contrasenia;
     private String cedula;
     private String correo;
     
@@ -19,7 +19,7 @@ public class Usuario {
 
     public Usuario(String nombre, String contraseña) {
         this.nombre = nombre;
-        this.contraseña = contraseña;
+        this.contrasenia = contraseña;
     }
     
     public String getNombre() {
@@ -31,11 +31,11 @@ public class Usuario {
     }
 
     public String getContraseña() {
-        return contraseña;
+        return contrasenia;
     }
 
     public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+        this.contrasenia = contraseña;
     }
 
     public String getCedula() {
@@ -54,6 +54,14 @@ public class Usuario {
         this.correo = correo;
     }
     
+    public boolean equals(Object obj){
+      Usuario user = (Usuario) obj;
+      if (this.nombre.equals(user.nombre) && this.contrasenia.equals(user.contrasenia)){
+          return true;
+      }
+      return false;
+      
+    }
+    
     
 }
-

@@ -11,12 +11,28 @@ import java.util.ArrayList;
  *
  * @author ricky
  */
-public class Menu {
+public class Interfaz {
     Scanner sc = new Scanner(System.in);
-    private String nombre;
-    private String contraseña;
-    private ArrayList<Usuario>Usuarios;
-    public void menuInicial(){
+    /*private String nombre;
+    private String contraseña;*/
+    private ArrayList<Usuario> usuarios;
+
+    public Interfaz() {
+        ArrayList<Usuario> usuarios = new ArrayList<> ();
+    }
+    
+    
+    
+    public boolean iniciarSesion(String nickUsuario, String contrasenia){
+        Usuario u1 = new Usuario(nickUsuario, contrasenia);
+        for (int i =0; i<=usuarios.size(); i++){
+            if (u1.equals(usuarios.get(i))){
+                return true;
+            }
+        }return false;
+    }
+    
+    /*public void menuInicial(){
         System.out.println("Bienvenido a la compañia");
         System.out.print("Usuario: ");
         String nombre = sc.nextLine();
@@ -26,7 +42,7 @@ public class Menu {
         while(user1.getNombre()==null){
         
         }
-    }
+    }*/
     
   
 }
