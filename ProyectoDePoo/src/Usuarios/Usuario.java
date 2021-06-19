@@ -54,6 +54,7 @@ public class Usuario {
         this.correo = correo;
     }
     
+    @Override
     public boolean equals(Object obj){
       Usuario user = (Usuario) obj;
       if (this.nombre.equals(user.nombre) && this.contrasenia.equals(user.contrasenia)){

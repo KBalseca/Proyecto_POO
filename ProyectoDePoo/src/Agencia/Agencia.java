@@ -3,25 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaz;
+package Agencia;
 import java.util.Scanner;
 import Usuarios.Usuario;
 import java.util.ArrayList;
+import Usuarios.Chat;
+import Usuarios.Mensaje;
+import java.time.LocalDate;
 /**
  *
  * @author ricky
  */
-public class Interfaz {
+public class Agencia {
     Scanner sc = new Scanner(System.in);
     /*private String nombre;
     private String contraseña;*/
     private ArrayList<Usuario> usuarios;
-
-    public Interfaz() {
+    private ArrayList<BienRaiz>listaPropiedad;
+    private ArrayList<Chat>Chat;
+    public Agencia() {
         ArrayList<Usuario> usuarios = new ArrayList<> ();
     }
-    
-    
     
     public boolean iniciarSesion(String nickUsuario, String contrasenia){
         Usuario u1 = new Usuario(nickUsuario, contrasenia);
@@ -31,18 +33,27 @@ public class Interfaz {
             }
         }return false;
     }
+    public void menuRegistro(){
+    String a="";
+        do {            
+            System.out.println("\n\t---Bienvenido a bienes y raices");
+            System.out.println("1. Iniciar Sesion");
+            System.out.println("2. Registrarse");
+            switch(a){
+                case"1":
+                    
+            }
+        } while (true);
     
-    /*public void menuInicial(){
-        System.out.println("Bienvenido a la compañia");
-        System.out.print("Usuario: ");
-        String nombre = sc.nextLine();
-        System.out.print("Contraseña: ");
-        String contraseña = sc.nextLine();
-        Usuario user1 = new Usuario(nombre,contraseña);
-        while(user1.getNombre()==null){
-        
-        }
-    }*/
+    }
     
+    private void opcion1(){
+    
+    
+    }
+       
+    private void opcion2(){
+    
+    }
   
 }
