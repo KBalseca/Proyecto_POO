@@ -12,16 +12,12 @@ import java.util.ArrayList;
  * @author EVELYN
  */
 public class Administrador extends Usuario{
-    private ArrayList<Usuario>Usuarios;
+    
     public Administrador(String nombre, String contraseña, String cedula, String correo) {
-        super(nombre, contraseña);
+        super(nombre, contraseña, cedula, correo);
     }
-    public boolean verificarUsuario(String nombre){
-        for(Usuario u:Usuarios){
-            if(u.getNombre().equals(nombre))
-                return true;
-        }
-        return false;
-    }
+    
+    
+    
 }
 

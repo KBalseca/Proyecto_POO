@@ -5,25 +5,30 @@
  */
 package Agencia;
 import java.util.Scanner;
-import Clases.Usuario;
+import Clases.*;
 import java.util.ArrayList;
-import Clases.Chat;
-import Clases.Mensaje;
 import java.time.LocalDate;
-import Clases.BienRaiz;
 /**
  *
  * @author ricky
  */
 public class Agencia {
-    Scanner sc = new Scanner(System.in);
-    /*private String nombre;
-    private String contraseña;*/
     private ArrayList<Usuario> usuarios;
     private ArrayList<BienRaiz>listaPropiedad;
-    private ArrayList<Chat>Chat;
+    private ArrayList<Chat> Chat;
+    
     public Agencia() {
         ArrayList<Usuario> usuarios = new ArrayList<> ();
+        ArrayList<BienRaiz> listaPropiedad = new ArrayList<> ();
+        ArrayList<Chat> Chat = new ArrayList<> ();
+    }
+
+    public ArrayList<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public ArrayList<BienRaiz> getListaPropiedad() {
+        return listaPropiedad;
     }
     
     public boolean iniciarSesion(String nickUsuario, String contrasenia){
@@ -34,27 +39,11 @@ public class Agencia {
             }
         }return false;
     }
-    public void menuRegistro(){
-    String a="";
-        do {            
-            System.out.println("\n\t---Bienvenido a bienes y raices");
-            System.out.println("1. Iniciar Sesion");
-            System.out.println("2. Registrarse");
-            switch(a){
-                case"1":
-                    
-            }
-        } while (true);
-    
-    }
-    
-    private void opcion1(){
-    
-    
-    }
-       
-    private void opcion2(){
-    
-    }
   
+    public void mostrarPropiedades(Usuario u1, double costoMax, double costoMin, String tipo, String ciudad, String sector) {
+        if (u1 instanceof Cliente){
+            Cliente c1 = (Cliente) u1;
+            c1.consultarPropiedades(listaPropiedad, costoMax, costoMin, tipo, ciudad, sector);
+        }
+    }
 }

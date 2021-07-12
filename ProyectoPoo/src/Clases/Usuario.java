@@ -17,9 +17,16 @@ public class Usuario {
     
  
 
-    public Usuario(String nombre, String contraseña) {
+    public Usuario(String nombre, String contrasenia) {
         this.nombre = nombre;
-        this.contrasenia = contraseña;
+        this.contrasenia = contrasenia;
+    }
+        
+    public Usuario(String nombre, String contrasenia, String cedula, String correo) {
+        this.nombre = nombre;
+        this.contrasenia = contrasenia;
+        this.cedula = cedula;
+        this.correo = correo;
     }
     
     public String getNombre() {

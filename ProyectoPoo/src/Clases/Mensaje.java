@@ -5,7 +5,6 @@
  */
 package Clases;
 import java.time.LocalDate;
-import java.util.Locale;
 import java.util.Scanner;
 import java.util.ArrayList;
 /**
@@ -16,13 +15,23 @@ public class Mensaje {
     private String contenido;
     private String tipo;
     private LocalDate fechaDeEnvio;
-    private int codigoPropiedad;
 
-    public Mensaje(String contenido, String tipo, LocalDate fechaDeEnvio, int codigoPropiedad) {
+    public Mensaje(String contenido, String tipo, LocalDate fechaDeEnvio) {
         this.contenido = contenido;
         this.tipo = tipo;
         this.fechaDeEnvio = fechaDeEnvio;
-        this.codigoPropiedad = codigoPropiedad;
+    }
+
+    public String getContenido() {
+        return contenido;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public LocalDate getFechaDeEnvio() {
+        return fechaDeEnvio;
     }
     
 }
